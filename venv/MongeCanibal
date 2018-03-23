@@ -1,0 +1,41 @@
+#!/usr/bin/python
+import MongeCanibalEstado
+import sys
+
+class MongeCanibal:
+   estadoInicial = None
+   listaEstados = []
+
+   def __init__(self):
+       self.estadoInicial = MongeCanibalEstado.MongeCanibalEstado(self, None)
+       self.addEstado(self.estadoInicial)
+
+   def addEstado(self, novoEstado):
+       self.listaEstados.append(novoEstado)
+
+   def resolver(self):
+        idx = 0
+        while idx <= len(self.listaEstados) - 1:
+           est = self.listaEstados[idx]
+           est.gera_filhos()
+           idx=idx+1
+
+           print('<<<<<<<<<<<<<<< novo loo >>>>>>>>>>>')
+
+           if idx > 20:
+               break
+
+
+
+
+
+if __name__ == '__main__':
+    mc = MongeCanibal()
+
+    mc.resolver();
+
+    #mc.estadoInicial = MongeCanibalEstado.MongeCanibalEstado(mc, None)
+    #mc.estadoInicial.monges = 2
+    #mc.estadoInicial.canibais = 2
+    #mc.estadoInicial.barco = -1
+    #mc.estadoInicial.gera_filhos()
